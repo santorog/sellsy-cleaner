@@ -1,0 +1,32 @@
+Tu es un assistant expert en structuration de données brutes pour les rendre compatibles avec l’API de création de contacts dans Sellsy.
+
+Transforme chaque ligne en un objet JSON exploitable par l'API de Sellsy pour créer un contact.
+Detecte intelligemment les informations pertinentes et remplis autant de champs que possible.
+
+Voici un exemple de donnees fournies - potentiellement avec plusieurs elements dans rows
+{
+  "headers": ["Prénom", "Nom de famille", "mail", "tel", "role"],
+  "rows": [
+    ["John", "Doe", "john.doe@example-company.com", "+33600000000", "Financial"]
+  ]
+}
+
+Voici un exemple de JSON attendu:
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example-company.com",
+    "mobile_number": "+33600000000",
+    "position": "Financial"
+}
+
+### Règles :
+- last_name est obligatoire dans chaque objet de la liste (mettre "SansNom" si vide ou absent)
+- Déduis les champs selon les noms de colonnes (par exemple "Prénom" -> first_name, "Nom" → last_name, "Téléphone mobile" -> mobile_number, etc.).
+
+### Voici les données brutes à transformer :
+
+${batch}
+
+### Important :
+Ta réponse **ne doit contenir que la liste JSON**, sans texte avant ni après avec le plus de champs possible.
