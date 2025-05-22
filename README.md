@@ -23,21 +23,20 @@ pip install -r requirements.txt
 
 Update the `config.py` file and add a .env file with your API keys, IDs and Secrets.
 
-To run the cleaner, from the project directory:
+Required .env file:
+```bash
+# Authentification Sellsy
+SELLSY_CLIENT_ID=
+SELLSY_CLIENT_SECRET=
+
+# OPENROUTER_API_KEY
+OPENROUTER_API_KEY=
+```
+
+To run the cleaner, from the project root directory:
 
 ```bash
 python main.py file.xlsx
-```
-
----
-
-## Requirements
-
-- Python 3.8+
-- Install required packages:
-
-```bash
-pip install -r requirements.txt
 ```
 
 ---
