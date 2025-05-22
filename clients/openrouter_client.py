@@ -5,13 +5,14 @@ from string import Template
 import requests
 
 import config
+from config import AppConfig
 
 
 class LLMDataCleaner:
     def __init__(self, prompt_path="prompts/cleaning_prompt.txt"):
         self.prompt_path = prompt_path
-        self.model = os.getenv("OPENROUTER_MODEL")
-        self.temperature = config.AppConfig.TEMPERATURE
+        self.model = AppConfig.OPENROUTER_MODEL
+        self.temperature = AppConfig.TEMPERATURE
         self.api_key = os.getenv("OPENROUTER_API_KEY")
         self.api_url = "https://openrouter.ai/api/v1/chat/completions"
 
